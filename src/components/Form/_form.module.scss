@@ -1,0 +1,285 @@
+@use "@styles/variables" as *;
+
+.section {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.form {
+  background-color: $color-white;
+  display: flex;
+  padding: 40px;
+  border-radius: 20px;
+  max-width: 90%;
+  overflow-y: auto;
+  margin: 0 auto;
+  z-index: 11;
+  position: relative;
+  box-sizing: border-box;
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+
+  &__title {
+    color: $color-black;
+    margin: 0;
+    font-size: 24px;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  &__inputs {
+    padding-top: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+  }
+
+  &__input {
+    background-color: transparent;
+    outline: none;
+    border: $border-width-s solid $main-color;
+    border-radius: 10px;
+    display: flex;
+    padding: 15px;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    box-sizing: border-box;
+    font-size: $fs-main;
+
+    &::placeholder {
+      color: rgba($main-color, 0.5);
+    }
+
+    &:focus::placeholder {
+      color: rgba($main-color, 1);
+    }
+  }
+
+  &__checkbox {
+    padding-top: 10px;
+    margin-left: 1em;
+    align-items: flex-end;
+    display: flex;
+
+    input {
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+    }
+  }
+
+  &__check {
+    appearance: none;
+    position: absolute;
+    margin-left: -1em;
+    margin-bottom: 0;
+
+    &:checked + .checkbox {
+      background-image: url("@public/arrows/rect=active.svg");
+    }
+  }
+
+  &__checkboxLabel {
+    font-size: $fs-12;
+    color: $main-color;
+    text-transform: uppercase;
+    line-height: 1.4;
+    user-select: none;
+    opacity: 0.5;
+    padding-left: 10px;
+    display: inline-block;
+  }
+
+  &__submit {
+    padding-top: 30px;
+    width: 100%;
+  }
+}
+
+.checkbox {
+  position: absolute;
+  width: 18px;
+  margin-left: -1em;
+  margin-top: 0.15em;
+  height: 18px;
+  background-image: url("@public/arrows/rectangle.svg");
+}
+
+.inputWrapper {
+  position: relative;
+  width: 100%;
+}
+
+.errorMessage {
+  position: absolute;
+  top: -15px;
+  left: 10px;
+  font-size: 12px;
+  color: red;
+  background: white;
+  padding: 0 5px;
+  z-index: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+
+.inputError {
+  border-color: red;
+
+  &:focus {
+    border-color: red;
+    outline: none;
+  }
+}
+
+@media (max-width: 510px) {
+  .form {
+    &__checkbox {
+      margin-left: 0;
+      padding-left: 0;
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      position: relative;
+    }
+
+    &__check {
+      position: absolute;
+      margin-left: 0;
+      width: 18px;
+      height: 18px;
+      z-index: 2;
+    }
+
+    &__checkboxLabel {
+      font-size: $fs-12;
+      word-break: break-word;
+      padding-left: 30px;
+    }
+  }
+
+  .checkbox {
+    position: absolute;
+    left: 1em;
+    top: 0.7em;
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+    background-image: url("@public/arrows/rectangle.svg");
+    pointer-events: none;
+    z-index: 1;
+  }
+}
+
+@media (max-width: 320px) {
+  .form {
+    max-width: 100%;
+    max-height: 100vh;
+    width: 100%;
+    height: 100%;
+    border-radius: 0;
+    padding: 40px 20px;
+    margin: 0;
+
+    &__title {
+      font-size: $fs-20;
+    }
+
+    &__inputs {
+      padding-top: 20px;
+      gap: 10px;
+    }
+
+    &__input {
+      padding: 12px;
+      font-size: 15px;
+    }
+
+    &__checkbox {
+      margin-top: 12px;
+
+      label {
+        font-size: $fs-12;
+      }
+    }
+
+    .checkbox {
+      top: 0.65em;
+    }
+
+    &__submit {
+      padding-top: 25px;
+    }
+  }
+}
+
+@media (max-width: 320px) and (max-height: 600px) {
+  .form {
+    padding: 40px 15px;
+    overflow-y: auto;
+
+    &__inputs {
+      padding-top: 20px;
+      gap: 6px;
+    }
+
+    &__input {
+      padding: 10px;
+    }
+
+    &__checkbox {
+      padding-left: 28px;
+      margin-top: 12px;
+
+      .custom-checkbox {
+        height: 20px;
+        width: 20px;
+
+        &::after {
+          left: 6px;
+          top: 2px;
+          width: 5px;
+          height: 10px;
+        }
+      }
+
+      label {
+        font-size: 13px;
+      }
+    }
+
+    &__submit {
+      padding-top: 15px;
+    }
+  }
+}

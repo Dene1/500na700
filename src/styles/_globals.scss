@@ -1,0 +1,67 @@
+@use "variables" as *;
+
+:root {
+  background-color: $background-color-main;
+  line-height: $main-line-height;
+}
+
+body {
+  font-family: var(--font-family-base), serif;
+  color: $color-white;
+  line-height: 130%;
+  overflow-x: hidden;
+  width: 100%;
+  position: relative;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
+h1, .h1,
+h2, .h2,
+h3, .h3,
+h4, .h4,
+h5, .h5,
+h6, .h6 {
+  color: $color-white;
+  font-weight: $fw-semibold;
+  padding: 0;
+  margin: 0;
+  line-height: 110%;
+  text-transform: uppercase;
+}
+
+h1, .h1 {
+  font-size: $fs-40;
+}
+
+h2, .h2 {
+  font-size: $fs-24;
+}
+
+h3, .h3 {
+  font-size: $fs-20;
+}
+
+h4, .h4 {
+  font-size: $fs-main;
+}
+
+@media (max-width: 320px) {
+  .main {
+    padding-bottom: 431px;
+  }
+}
+
+a,
+button,
+label,
+input,
+textarea,
+select,
+svg * {
+  transition-duration: var(--transition-duration);
+}
+
+a {
+  color: var(--color-white);
+}

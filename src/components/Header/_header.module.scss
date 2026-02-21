@@ -1,0 +1,79 @@
+@use "@styles/variables" as *;
+
+.header {
+  position: sticky;
+  width: 100vw;
+  top: 0;
+  left: 0;
+  height: 120px;
+  z-index: 2;
+  background-color: $background-color-main;
+
+  &::before {
+    content: '';
+    position: absolute;
+    border-bottom: $border-width-s solid $color-white;
+    opacity: 0.3;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+  }
+
+  .logo {
+    width: 100%;
+    height: 100%;
+  }
+
+  &__content {
+    max-width: 1440px;
+    display: flex;
+    align-items: center;
+    margin: 0 auto;
+    justify-content: space-between;
+    padding: 20px 20px 15px 20px;
+    position: relative;
+  }
+
+  &__contact-btn {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+
+    @media (min-width: 1001px) {
+      position: static;
+      transform: none;
+      margin-left: auto;
+    }
+  }
+}
+
+@media (max-width: 1000px) {
+  .header {
+    &__content {
+      padding: 20px 30px;
+    }
+
+    &__contact-btn {
+      position: static;
+      transform: none;
+      margin: 0 20px;
+    }
+  }
+}
+
+@media (max-width: 320px) {
+  .header {
+    height: 83px;
+
+    &__content {
+      padding: 20px 10px 15px 10px;
+    }
+
+    .logo {
+      width: 44px;
+      height: 53px;
+    }
+  }
+}

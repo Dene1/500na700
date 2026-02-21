@@ -1,0 +1,192 @@
+@use "@/styles/variables" as *;
+
+.card {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  margin: 80px auto;
+  padding: 0 40px 150px 40px;
+  gap: 40px;
+  max-width: 1440px;
+  box-sizing: border-box;
+  justify-content: center;
+
+  img {
+    width: 100%;
+    height: 320px;
+    object-fit: cover;
+  }
+
+  & > div:first-child {
+    flex: 1;
+    max-width: 600px;
+  }
+
+  &__content {
+    flex: 1;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    box-sizing: border-box;
+  }
+
+  &__loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 400px;
+    width: 100%;
+    font-size: $fs-24;
+  }
+
+  &__title {
+    text-transform: uppercase;
+    margin: 0;
+    box-sizing: border-box;
+    word-break: break-word;
+  }
+
+  &__subtitle {
+    padding-top: 20px;
+    word-break: break-word;
+  }
+
+  &__description {
+    word-break: break-word;
+  }
+
+  &__date {
+    font-size: $fs-main;
+    opacity: 0.5;
+  }
+}
+
+
+@media (max-width: 1200px) {
+  .card {
+    margin: 40px auto;
+    padding: 0 30px 100px 30px;
+    gap: 30px;
+
+    &__title {
+      font-size: 28px;
+    }
+
+    &__content {
+      max-width: 500px;
+    }
+
+    &__description {
+      font-size: 14px;
+    }
+
+    &__date {
+      font-size: 14px;
+    }
+  }
+}
+
+@media (max-width: 1070px) {
+  .card {
+    flex-direction: column;
+    align-items: center;
+    margin: 40px auto;
+    padding: 0 40px 120px 40px;
+
+    & > div:first-child,
+    &__content {
+      max-width: 600px;
+      width: 100%;
+    }
+
+    & > div:first-child {
+      img {
+        height: 300px;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .card {
+    padding: 0 20px 100px 20px;
+
+    &__title {
+      font-size: 24px;
+    }
+
+    & > div:first-child {
+      img {
+        height: 250px;
+      }
+    }
+
+    &__subtitle {
+      font-size: 18px;
+      padding-top: 15px;
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  .card {
+    padding: 0 15px 80px 15px;
+    gap: 20px;
+
+    & > div:first-child {
+      img {
+        height: 220px;
+      }
+    }
+
+    &__content {
+      gap: 15px;
+    }
+
+    &__title {
+      font-size: 22px;
+    }
+
+    &__subtitle {
+      font-size: 16px;
+      padding-top: 10px;
+    }
+  }
+}
+
+@media (max-width: 320px) {
+  .card {
+    margin: 0;
+    padding: 0 0 80px 0;
+    gap: 10px;
+
+    &__content {
+      gap: 10px;
+      padding-inline: 10px;
+    }
+
+    &__title {
+      font-size: 24px;
+    }
+
+    & > div:first-child {
+      img {
+        height: 230px;
+      }
+    }
+
+    &__subtitle {
+      padding-top: 10px;
+      font-size: $fs-20;
+    }
+
+    &__date {
+      font-size: $fs-main;
+    }
+
+    &__description {
+      font-size: $fs-main;
+    }
+  }
+}

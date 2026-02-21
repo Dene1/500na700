@@ -1,0 +1,68 @@
+@use "@styles/variables" as *;
+
+.button {
+  border-radius: $border-radius;
+  font-size: $fs-main;
+  font-weight: $fw-normal;
+  padding: 12px 20px;
+}
+
+.void {
+  color: $color-black;
+  border: none;
+  background-color: transparent;
+  padding: 0;
+  margin: 0;
+}
+
+@mixin gradient-border-button($text-color) {
+  color: $text-color;
+  background: transparent;
+  border: none;
+  position: relative;
+  display: inline-block;
+  padding: 12px 20px;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: $border-radius;
+    padding: $border-width-s;
+    background: $gradient;
+    -webkit-mask: linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: $border-radius;
+    background: $gradient;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: -2;
+  }
+
+  &:hover::after {
+    opacity: 1;
+  }
+}
+
+.whiteFont {
+  @include gradient-border-button($color-white);
+}
+
+.blackFont {
+  @include gradient-border-button($main-color);
+}
