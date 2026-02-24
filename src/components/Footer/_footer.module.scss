@@ -32,7 +32,7 @@
 @media (max-width: 700px) {
   .footer {
     height: auto;
-    min-height: 248px;
+    min-height: 200px;
     padding-inline: 20px;
 
     &__content {
@@ -64,6 +64,7 @@
 @media (max-width: 320px) {
   .footer {
     height: 431px;
+    position: static;
 
     &__content {
       gap: 30px;
