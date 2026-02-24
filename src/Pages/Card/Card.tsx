@@ -28,7 +28,6 @@ export const Card = () => {
           <img src={currentNews.img}
                alt={currentNews.title} />
         </div>
-
         <div className={styles.card__content}>
           <h1 className={styles.card__title}>{currentNews.title}</h1>
           <div className={styles.card__date}>{currentNews.date}</div>
