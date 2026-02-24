@@ -14,6 +14,13 @@ body {
   position: relative;
   word-break: break-word;
   overflow-wrap: break-word;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1 0 auto; // растягивается
 }
 
 h1, .h1,
