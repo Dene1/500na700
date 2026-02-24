@@ -1,7 +1,7 @@
 @use "@styles/variables" as *;
 
 .footer {
-  position: sticky;
+  position: static;
   bottom: 0;
   left: 0;
   width: 100%;
@@ -60,10 +60,8 @@
   }
 }
 
-@media (max-width: 1070px) and (max-height: 1000px) {
-  .footer {
-    position: static;
-  }
+@media (min-width: 1071px) and (min-height: 1001px) {
+  position: sticky;
 }
 
 @media (max-width: 320px) {
