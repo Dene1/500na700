@@ -10,7 +10,6 @@
   z-index: 2;
   padding-inline: 40px;
 
-
   .logo {
     width: 103px;
     height: 120px;
@@ -59,11 +58,11 @@
   }
 }
 
-@media (max-height: 1000px) {
-  .footer {
-    position: static;
-  }
-}
+//@media (max-height: 800px) {
+//  .footer {
+//    position: static;
+//  }
+//}
 
 
 @media (max-width: 320px) {

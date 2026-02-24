@@ -4,8 +4,8 @@
   width: 100%;
   display: flex;
   flex-direction: row;
-  margin: 80px auto;
-  padding: 0 40px 150px 40px;
+  margin: 80px auto 0 auto;
+  padding: 0 40px 268px 40px;
   gap: 40px;
   max-width: 1440px;
   box-sizing: border-box;
@@ -65,9 +65,9 @@
 
 @media (max-width: 1200px) {
   .card {
-    margin: 40px auto;
-    padding: 0 30px 100px 30px;
-    gap: 30px;
+    //margin: 40px auto;
+    //padding: 0 30px 100px 30px;
+    //gap: 30px;
 
     &__title {
       font-size: 28px;
@@ -92,7 +92,7 @@
     flex-direction: column;
     align-items: center;
     margin: 40px auto;
-    padding: 0 40px 120px 40px;
+    padding: 0 40px 248px 40px;
 
     & > div:first-child,
     &__content {
@@ -110,7 +110,7 @@
 
 @media (max-width: 768px) {
   .card {
-    padding: 0 20px 100px 20px;
+    padding: 0 20px 240px 20px;
 
     &__title {
       font-size: 24px;
@@ -131,7 +131,7 @@
 
 @media (max-width: 500px) {
   .card {
-    padding: 0 15px 80px 15px;
+    padding: 0 15px 240px 15px;
     gap: 20px;
 
     & > div:first-child {
