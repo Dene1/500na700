@@ -66,6 +66,19 @@
   }
 }
 
+@media (max-height: 1000px) {
+  .footer {
+    position: static;
+  }
+}
+
+@media (min-height: 1001px) {
+  .footer {
+    position: sticky;
+    bottom: 0;
+  }
+}
+
 
 @media (max-width: 320px) {
   .footer {
