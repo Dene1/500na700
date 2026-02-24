@@ -1,14 +1,14 @@
 import styles from './_card.module.scss'
-import useNews from '@/hooks/useNews'
 import {Footer} from "@/components"
+import type { NewsItem as NewsItemType } from "@/types/newsTypes"
 
-export const Card = () => {
-  const {news} = useNews()
+interface CardProps {
+  news: NewsItemType | null
+}
 
-  const newsId = window.location.pathname.split('/').pop()
-  const currentNews = news?.find((item) => String(item.id) === newsId)
+export const Card = ({news}: CardProps)  => {
 
-  if (!currentNews || news.length === 0) {
+  if (!news) {
     return <div className={styles.card__loading}>Загрузка...</div>
   }
 
@@ -16,15 +16,15 @@ export const Card = () => {
     <>
       <section className={styles.card}>
         <div>
-          <img src={currentNews.img}
-               alt={currentNews.title} />
+          <img src={news.img}
+               alt={news.title} />
         </div>
 
         <div className={styles.card__content}>
-          <h1 className={styles.card__title}>{currentNews.title}</h1>
-          <div className={styles.card__date}>{currentNews.date}</div>
-          <h3 className={styles.card__subtitle}>{currentNews.subtitle}</h3>
-          <p className={styles.card__description}>{currentNews.description}</p>
+          <h1 className={styles.card__title}>{news.title}</h1>
+          <div className={styles.card__date}>{news.date}</div>
+          <h3 className={styles.card__subtitle}>{news.subtitle}</h3>
+          <p className={styles.card__description}>{news.description}</p>
         </div>
       </section>
       <Footer />
