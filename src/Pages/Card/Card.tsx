@@ -1,16 +1,13 @@
 import styles from './_card.module.scss'
 import {Footer} from "@/components"
-import type { NewsItem as NewsItemType } from "@/types/newsTypes"
+import type {NewsItem} from "@/types/newsTypes"
 
 interface CardProps {
-  news: NewsItemType | null
+  news: NewsItem
 }
 
-export const Card = ({news}: CardProps)  => {
-
-  if (!news) {
-    return <div className={styles.card__loading}>Загрузка...</div>
-  }
+export const Card = ({news}: CardProps) => {
+  if (!news) return null
 
   return (
     <>
