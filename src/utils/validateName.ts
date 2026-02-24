@@ -1,4 +1,4 @@
-export const validateName = (name) => {
+export const validateName = (name: string) => {
   const trimmedName = name.trim()
   if (trimmedName.length === 0 && name.length > 0) {
     return "Поле не может состоять только из пробелов"

@@ -2,20 +2,11 @@ import styles from './_card.module.scss'
 import useNews from '@/hooks/useNews'
 import {Footer} from "@/components"
 
-interface NewsItem {
-  id: string | number
-  img: string
-  title: string
-  description: string
-  date: string
-  subtitle: string
-}
-
 export const Card = () => {
   const {news} = useNews()
 
   const newsId = window.location.pathname.split('/').pop()
-  const currentNews = news?.find((item: NewsItem) => String(item.id) === newsId)
+  const currentNews = news?.find((item) => String(item.id) === newsId)
 
   if (!currentNews || news.length === 0) {
     return <div className={styles.card__loading}>Загрузка...</div>

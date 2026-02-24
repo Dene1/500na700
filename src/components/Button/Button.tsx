@@ -6,7 +6,6 @@ type Variant =
   | "void"
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  children: React.ReactNode
   variant?: Variant
   className?: string
   onClick?: () => void

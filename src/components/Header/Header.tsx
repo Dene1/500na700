@@ -1,5 +1,5 @@
 import styles from './_header.module.scss'
-import {Button} from "@components"
+import {Button} from "@/components"
 
 interface HeaderProps {
   onOpenForm?: () => void

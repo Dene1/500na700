@@ -1,4 +1,4 @@
-export const validatePhone = (phone) => {
+export const validatePhone = (phone: string) => {
   const digitsOnly = phone.replace(/\D/g, "")
 
   if (digitsOnly.length === 0) return "Поле обязательно"

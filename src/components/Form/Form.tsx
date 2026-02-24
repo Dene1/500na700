@@ -1,5 +1,5 @@
 import styles from './_form.module.scss'
-import {Button} from "@components"
+import {Button} from "@/components"
 import {PatternFormat} from 'react-number-format'
 import {validateName, validatePhone} from '@/utils'
 import {useEffect, useRef, useState} from "react"
@@ -7,10 +7,9 @@ import {useEffect, useRef, useState} from "react"
 interface FormProps {
   onClose?: () => void
   isOpen?: boolean
-  isClosing?: boolean
 }
 
-export const Form = ({onClose, isClosing = false, isOpen = true}: FormProps) => {
+export const Form = ({onClose, isOpen = true}: FormProps) => {
   const nameInputRef = useRef<HTMLInputElement>(null)
   const [formValues, setFormValues] = useState({
     name: '',
