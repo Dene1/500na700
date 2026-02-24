@@ -12,6 +12,13 @@ interface NewsItem {
 export const News = () => {
   const {news} = useNews()
 
+  const handleNewsClick = (e: React.MouseEvent, id: string | number) => {
+    e.preventDefault()
+    window.history.pushState({}, '', `/news/${id}`)
+
+    window.dispatchEvent(new Event('popstate'))
+  }
+
   return (
     <section className={styles.news}>
       <h1 className={styles.news__title}>Новости</h1>
@@ -24,6 +31,7 @@ export const News = () => {
           news.map((item: NewsItem) => (
             <a key={item.id}
                href={`/news/${item.id}`}
+               onClick={(e) => handleNewsClick(e, item.id)}
                className={styles.news__container}>
               <img src={item.img}
                    alt={item.title} />
