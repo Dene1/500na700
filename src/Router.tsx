@@ -63,9 +63,9 @@ const Router = (props: RouterProps) => {
     const params = matchPas(path, route);
 
     if (params) {
-      const Card = routes[route];
+      const Page = routes[route];
 
-      return <Card params={params} />;
+      return <Page params={params} />;
     }
   }
 
