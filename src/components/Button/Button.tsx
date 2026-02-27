@@ -1,11 +1,12 @@
 import styles from './_button.module.scss'
+import type {ButtonHTMLAttributes} from "react";
 
 type Variant =
   | "blackFont"
   | "whiteFont"
   | "void"
 
-interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: Variant
   className?: string
   onClick?: () => void

@@ -1,38 +1,54 @@
 import styles from './_card.module.scss'
-import useNews from '@/hooks/useNews'
 import {Footer} from "@/components"
+import {useEffect, useState} from "react";
+import {newsApi} from "@/api";
+import type {NewsItem} from "@/types/newsTypes.ts";
 
-interface NewsItem {
-  id: string | number
-  img: string
-  title: string
-  description: string
-  date: string
-  subtitle: string
+interface CardProps {
+  params: {
+    id: string;
+  };
 }
 
-export const Card = () => {
-  const {news} = useNews()
+export const Card = (props: CardProps) => {
+  const {params} = props
+  const newId = params.id
 
-  const newsId = window.location.pathname.split('/').pop()
-  const currentNews = news?.find((item: NewsItem) => String(item.id) === newsId)
+  const [news, setNews] = useState<NewsItem | null>(null);
+  const [isLoading, setIsLoading] = useState(true);
+  const [hasError, setHasError] = useState(false);
 
-  if (!currentNews || news.length === 0) {
-    return <div className={styles.card__loading}>Загрузка...</div>
+  useEffect(() => {
+    newsApi
+      .getById(newId)
+      .then((newData) => {
+        setNews(newData);
+        setHasError(false);
+      })
+      .catch(() => setHasError(true))
+      .finally(() => setIsLoading(false));
+  }, [])
+
+  if (isLoading) {
+    return <div>Loading ...</div>;
+  }
+
+  if (hasError || !news) {
+    return <div>Task Not found</div>;
   }
 
   return (
     <>
       <section className={styles.card}>
         <div>
-          <img src={currentNews.img}
-               alt={currentNews.title} />
+          <img src={news.img}
+               alt={news.title} />
         </div>
         <div className={styles.card__content}>
-          <h1 className={styles.card__title}>{currentNews.title}</h1>
-          <div className={styles.card__date}>{currentNews.date}</div>
-          <h3 className={styles.card__subtitle}>{currentNews.subtitle}</h3>
-          <p className={styles.card__description}>{currentNews.description}</p>
+          <h1 className={styles.card__title}>{news.title}</h1>
+          <div className={styles.card__date}>{news.date}</div>
+          <h3 className={styles.card__subtitle}>{news.subtitle}</h3>
+          <p className={styles.card__description}>{news.description}</p>
         </div>
       </section>
       <Footer />

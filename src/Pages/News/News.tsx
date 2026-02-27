@@ -1,5 +1,6 @@
 import styles from './_news.module.scss'
 import useNews from '@/hooks/useNews'
+import {RouterLink} from "@/components";
 
 interface NewsItem {
   id: string | number
@@ -22,9 +23,10 @@ export const News = () => {
           </div>
         ) : (
           news.map((item: NewsItem) => (
-            <a key={item.id}
-               href={`/news/${item.id}`}
-               className={styles.news__container}>
+            <RouterLink key={item.id}
+                        to={`/news/${item.id}`}
+                        aria-label="News detail page"
+                        className={styles.news__container}>
               <img src={item.img}
                    alt={item.title} />
               <div className={styles.news__list}>
@@ -32,7 +34,7 @@ export const News = () => {
                 <p className={styles.news__description}>{item.description}</p>
                 <div className={styles.news__date}>{item.date}</div>
               </div>
-            </a>
+            </RouterLink>
           ))
         )}
       </div>
