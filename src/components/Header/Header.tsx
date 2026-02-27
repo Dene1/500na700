@@ -1,5 +1,5 @@
 import styles from './_header.module.scss'
-import {Button} from "@/components"
+import {Button, RouterLink} from "@/components"
 
 interface HeaderProps {
   onOpenForm?: () => void
@@ -9,13 +9,13 @@ export const Header = ({onOpenForm}: HeaderProps) => {
   return (
     <header className={styles.header}>
       <div className={styles.header__content}>
-        <a href='/'
-           aria-label='На главную страницу'
-           className={styles.header__logo}>
+        <RouterLink to='/'
+                    aria-label='На главную страницу'
+                    className={styles.header__logo}>
           <img src='/logo/logo.svg'
                className={styles.logo}
                alt='logo' />
-        </a>
+        </RouterLink>
 
         <div className={styles.header__container}>
           <Button content='Связаться с нами'
